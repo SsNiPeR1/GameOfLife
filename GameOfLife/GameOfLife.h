@@ -5,13 +5,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#ifdef _WIN32
+#ifdef WIN32
 	#include <windows.h>
 #else
 	#include <unistd.h>
+	#include <time.h>
 #endif
 
-void nextGeneration(int board[5][5]);
-int countNeighbors(int board[5][5], int x, int y);
-void printBoard(int board[5][5]);
+void tick(int *ptr, int width, int height);
+int neighbors(int *ptr, int x, int y, int width, int height);
+void printBoard(int *ptr, int width, int height);

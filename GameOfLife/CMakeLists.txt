@@ -3,7 +3,7 @@
 #
 
 # Add source to this project's executable.
-add_executable (GameOfLife "GameOfLife.c" "GameOfLife.h")
+add_executable (GameOfLife "GameOfLife.c" "GameOfLife.h" "util/util.h" "util/util.c")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET GameOfLife PROPERTY CXX_STANDARD 20)

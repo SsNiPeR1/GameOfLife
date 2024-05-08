@@ -1,0 +1,2 @@
+int getTerminalWidth();
+int getTerminalHeight();
