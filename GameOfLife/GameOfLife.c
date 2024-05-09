@@ -8,23 +8,22 @@ int main() {
     const int width = getTerminalWidth();
     const int height = getTerminalHeight();
 
-    int* ptr = (int*)malloc(width * height * sizeof(int));
+    int* grid = (int*)malloc(width * height * sizeof(int));
 
-	if (ptr == NULL) {
+	if (grid == NULL) {
 		printf("Memory allocation failed\n");
 		return 1;
 	}
 
 	srand(time(NULL));
 
-    // randomize the grid
     for (int i = 0; i < width * height; i++) {
-		ptr[i] = rand() % 2;
+		grid[i] = rand() % 2;
 	}
 
 	for (;;) {
-		tick(ptr, width, height);
-		printBoard(ptr, width, height);
+		tick(grid, width, height);
+		printBoard(grid, width, height);
 		#ifdef WIN32
 			Sleep(100);
 			system("cls");
@@ -34,8 +33,7 @@ int main() {
 		#endif
 	}
 
-	// free the memory
-	free(ptr);
+	free(grid);
 
     return 0;
 }
